@@ -1,0 +1,19 @@
+#!/bin/sh
+
+OPTFILES="market.cmx main.cmx"
+
+#OPTLIBS="str.cmxa unix.cmxa nums.cmxa bigarray.cmxa sdl.cmxa sdlloader.cmxa sdlttf.cmxa sdlmixer.cmxa"
+
+
+OCAMLC=ocamlc.opt
+OCAMLCP=ocamlcp
+OCAMLOPT=ocamlopt
+
+OCAMLSDLLIB=`ocamlfind query sdl`
+
+OUTNAME=traderjoe
+
+
+#$OCAMLC -o $OUTNAME -g -I $OCAMLSDLLIB $LIBS $FILES
+$OCAMLOPT -o $OUTNAME -I $OCAMLSDLLIB $OPTLIBS $OPTFILES
+
